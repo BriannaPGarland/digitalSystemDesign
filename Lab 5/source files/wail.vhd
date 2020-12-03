@@ -43,3 +43,10 @@ wp: process
   else curr_pitch <= curr_pitch - wspeed;   -- current value of updn
   end if;
  end process;
+ 
+tgen: tone port map(clk => audio_clk,  -- instance a tone module
+           btn_press => button_press,
+             pitch => curr_pitch,  -- use curr-pitch to modulate tone
+             data => audio_data);
+
+end Behavioral;
